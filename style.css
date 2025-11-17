@@ -1,0 +1,145 @@
+/* style.css */
+
+/* ==================================== */
+/* 核心頁面樣式：全螢幕設定 (新增字型) */
+/* ==================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; 
+  position: relative; 
+  overflow: hidden; 
+  background-color: #f0f0f0; 
+  
+  /* *** 關鍵修改：套用新字型 *** */
+  font-family: "Chiron GoRound TC", sans-serif;
+}
+
+canvas {
+  /* 畫布全屏貼合視窗，位於底層 (z-index: 1) */
+  display: block; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1; 
+}
+
+/* ==================================== */
+/* 隱藏式選單樣式與動畫 */
+/* ==================================== */
+
+/* 觸發區域容器 (左側 100px 寬) */
+#menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100px; /* 僅左側 100px 是懸停觸發區 */
+    z-index: 100; /* 確保它在畫布之上 */
+}
+
+#side-menu {
+    /* 選單本身的大小和定位 */
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: 100%;
+    width: 300px; /* 選單滑出後的大小 */
+    background-color: rgba(32, 32, 32, 0.95); 
+    color: white;
+    padding-top: 50px;
+    
+    /* 初始狀態：完全隱藏 */
+    transform: translateX(-300px); 
+    transition: transform 0.5s ease-out;
+}
+
+/* 當滑鼠懸停在容器上時，選單滑出 */
+#menu-container:hover #side-menu {
+    transform: translateX(0);
+}
+
+
+/* 選單項目樣式 */
+#side-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu nav li {
+    padding: 15px 25px;
+}
+
+#side-menu nav a {
+    font-size: 32px; /* 選單文字大小 32px */
+    color: #f0f0f0;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+#side-menu nav a:hover {
+    color: #4CAF50; 
+}
+
+/* ==================================== */
+/* iframe 顯示樣式 (彈出視窗) */
+/* ==================================== */
+
+#iframe-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* 根據要求設定尺寸 */
+    width: 70vw; /* 70% 視窗寬度 */
+    height: 85vh; /* 85% 視窗高度 */
+    
+    /* 居中定位 */
+    transform: translate(-50%, -50%);
+    
+    background: #ffffff; 
+    border: 3px solid #4CAF50;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    z-index: 200; /* 確保它在菜單之上 */
+    
+    /* 初始狀態：隱藏 */
+    display: none; 
+    
+    /* 使用 Flexbox 排列內容 */
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* 點擊後由 JavaScript 添加此類別來顯示 */
+#iframe-display.visible {
+    display: flex; /* 顯示容器 */
+}
+
+/* 實際的 iframe 元素：填滿容器剩餘空間 */
+#lecture-iframe {
+    flex-grow: 1; /* 佔據容器所有可用空間 */
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 關閉按鈕樣式 */
+#close-iframe {
+    position: absolute;
+    top: -15px; 
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    background: #f44336;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 201; 
+}

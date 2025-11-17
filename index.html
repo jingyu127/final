@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mosaic Square - Samuel YAN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    
+  </head>
+  <body>
+    
+    <div id="menu-container">
+        <div id="side-menu">
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showWorksIframe(event)">第一單元作品</a></li>
+                    <li><a href="#" onclick="showLectureIframe(event)">第一單元講義</a></li> 
+                    <li><a href="#" onclick="showQuizIframe(event)">測驗系統</a></li>
+                    
+                    <li><a href="#" onclick="showMidtermNoteIframe(event)">期中筆記</a></li>
+                    
+                    
+                    
+                    <li><a href="#" onclick="showTKUETIframe(event)">淡江教科</a></li>
+                    
+                    <li><a href="#">回到首頁</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div id="iframe-display">
+        <button id="close-iframe" onclick="hideLectureIframe()">X</button>
+        <iframe id="lecture-iframe" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
